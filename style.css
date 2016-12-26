@@ -1,5 +1,39 @@
 body,
 html {
   height: 100%;
-  background: aqua;
+  margin: 0;
+}
+
+.input-field {
+  height: 40%;
+  background: #455A64;
+}
+
+.main-header {
+  margin: 0 0 15px 0;
+  padding-top: 15px;
+  text-align: center;
+  color: #FFF;
+}
+
+input,
+button {
+  display: block;
+  width: 288px;
+  height: 20px;
+  margin: 0 auto 10px auto;
+  border: 0;
+}
+
+#enter-button {
+  width: 290px;
+  height: 22px;
+  border: 0;
+  background: #FFC107;
+  color: #FFF;
+}
+
+.bookmark-field {
+  height: 60%;
+  background: #CFD8DC;
 }

@@ -53,26 +53,30 @@ button {
 }
 
 .bookmark-title {
-  width: 90%;
+  width: 85%;
   margin: 0 auto;
-  padding: 10px;
+  padding: 10px 10px 10px 0;
   border-bottom: 1px solid #CFD8DC;
   color: #455A64;
 }
 
+.aTagWrapper {
+  margin: 10px 0;
+}
+
 .bookmark-content {
-  margin: 0;
   border-bottom: 1px solid #F2F4F4;
-  padding: 10px;
   font-weight: 400;
+  margin-left: 15px;
   color: #607D8B;
+  text-decoration: none;
 }
 
 .buttons-wrapper {
   display: flex;
-  width: 90%;
+  width: 85%;
   margin: 0 auto;
-  padding: 10px 10px 0 10px;
+  padding: 5px 5px 0 5px;
   border-top: 1px solid #CFD8DC;
 }
 

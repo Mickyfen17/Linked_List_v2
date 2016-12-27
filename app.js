@@ -7,8 +7,7 @@ $("#enter-button").on("click", function() {
 
 $(".bookmark-field").on("click", ".read-button", function() {
   $(this).toggleClass("read");
-  $(".bookmark-card").toggleClass("read-bookmark");
-  $(".bookmark-content").toggleClass("read-content");
+  $(this).closest(".bookmark-card").toggleClass("read-bookmark");
 });
 
 $(".bookmark-field").on("click", ".delete-button", function() {

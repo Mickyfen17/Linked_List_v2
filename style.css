@@ -97,3 +97,18 @@ button {
   color: #455A64;
   cursor: pointer;
 }
+
+/*Classes to toggle in JS*/
+.read {
+  color: #F05A28;
+  font-weight: 800;
+  border: none;
+}
+
+.read-bookmark {
+  background: #F2F4F4;
+}
+
+.read-content {
+  border-bottom: 1px solid #CFD8DC;
+}

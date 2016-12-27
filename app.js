@@ -5,6 +5,12 @@ $("#enter-button").on("click", function() {
   clearInputs();
 });
 
+$(".bookmark-field").on("click", ".read-button", function() {
+  $(this).toggleClass("read");
+  $(".bookmark-card").toggleClass("read-bookmark");
+  $(".bookmark-content").toggleClass("read-content");
+});
+
 $(".bookmark-field").on("click", ".delete-button", function() {
   var id = $(this).closest("article").attr("id");
   localStorage.removeItem(id);

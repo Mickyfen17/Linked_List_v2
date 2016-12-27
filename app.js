@@ -5,6 +5,12 @@ $("#enter-button").on("click", function() {
   clearInputs();
 });
 
+$(".bookmark-field").on("click", ".delete-button", function() {
+  var id = $(this).closest("article").attr("id");
+  localStorage.removeItem(id);
+  $(this).closest("article").remove();
+});
+
 function getInputValues() {
   var titleValue = $("#bookmark-title-input").val();
   var contentValue = $("#bookmark-content-input").val();
@@ -46,7 +52,7 @@ function displayBookmark(bookmark) {
       <div class="buttons-wrapper">
         <button class="read-button">Read</button>
         <button class="delete-button">Delete</button>
-      </div>  
+      </div>
     </article>
   `);
 }

@@ -2,6 +2,7 @@ body,
 html {
   height: 100%;
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
 /*Input field content*/
@@ -63,6 +64,7 @@ button {
   margin: 0;
   border-bottom: 1px solid #F2F4F4;
   padding: 10px;
+  font-weight: 400;
   color: #607D8B;
 }
 

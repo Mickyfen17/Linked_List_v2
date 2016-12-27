@@ -72,6 +72,14 @@ button {
   text-decoration: none;
 }
 
+.bookmark-content:hover,
+.read-button:hover,
+.delete-button:hover {
+  color: #455A64;
+  font-weight: 800;
+  border-bottom: 1px solid #FFC107;
+}
+
 .buttons-wrapper {
   display: flex;
   width: 85%;

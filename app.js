@@ -3,6 +3,11 @@ retriveBookmarks();
 $("#enter-button").on("click", function() {
   getInputValues();
   clearInputs();
+  testEmptyInputs();
+});
+
+$("#bookmark-title-input, #bookmark-content-input").on("keyup", function() {
+  testEmptyInputs();
 });
 
 $(".bookmark-field").on("click", ".read-button", function() {
@@ -27,6 +32,16 @@ function getInputValues() {
 function clearInputs() {
   $("#bookmark-title-input").val("");
   $("#bookmark-content-input").val("");
+}
+
+function testEmptyInputs() {
+  var titleValue = $("#bookmark-title-input").val();
+  var contentValue = $("#bookmark-content-input").val();
+  if(titleValue.length > 2 && contentValue.length > 2) {
+    $("#enter-button").prop("disabled", false);
+  } else {
+    $("#enter-button").prop("disabled", true);
+  }
 }
 
 function Bookmark(id, title, content) {

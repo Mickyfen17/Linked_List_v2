@@ -43,8 +43,10 @@ function displayBookmark(bookmark) {
     <article id="${bookmark.id}" class="bookmark-card">
       <h3 class="bookmark-title">${bookmark.title}</h3>
       <h4 class="bookmark-content">${bookmark.content}</h4>
-      <button class="read-button">Read</button>
-      <button class="delete-button">Delete</button>
+      <div class="buttons-wrapper">
+        <button class="read-button">Read</button>
+        <button class="delete-button">Delete</button>
+      </div>  
     </article>
   `);
 }

@@ -22,14 +22,16 @@ html {
 input,
 button {
   display: block;
-  width: 288px;
+  width: 90%;
+  max-width: 360px;
   height: 20px;
   margin: 0 auto 10px auto;
   border: 0;
 }
 
 #enter-button {
-  width: 290px;
+  width: 90%;
+  max-width: 360px;
   height: 22px;
   border: 0;
   background: #FFC107;
@@ -55,6 +57,7 @@ button {
 
 .bookmark-card {
   width: 90%;
+  max-width: 360px;
   margin: 0 auto 20px auto;
   background: #FFF;
   border: 1px solid #607D8B;

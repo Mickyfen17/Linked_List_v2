@@ -34,6 +34,10 @@ button {
   border: 0;
   background: #FFC107;
   color: #FFF;
+  cursor: pointer;
+}
+#enter-button:hover {
+  background: #FFD773;
 }
 
 /*Boomark field content*/

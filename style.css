@@ -4,6 +4,8 @@ html {
   margin: 0;
 }
 
+/*Input field content*/
+
 .input-field {
   height: 40%;
   background: #455A64;
@@ -33,7 +35,49 @@ button {
   color: #FFF;
 }
 
+/*Boomark field content*/
+
 .bookmark-field {
   height: 60%;
+  overflow: auto;
   background: #CFD8DC;
+}
+
+.bookmark-card {
+  width: 90%;
+  margin: 0 auto 20px auto;
+  background: #FFF;
+  border: 1px solid #607D8B;
+}
+
+.bookmark-title {
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px;
+  border-bottom: 1px solid #CFD8DC;
+  color: #455A64;
+}
+
+.bookmark-content {
+  margin: 0;
+  border-bottom: 1px solid #F2F4F4;
+  padding: 10px;
+  color: #607D8B;
+}
+
+.buttons-wrapper {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 10px 0 10px;
+  border-top: 1px solid #CFD8DC;
+}
+
+.read-button,
+.delete-button {
+  background: none;
+  width: initial;
+  border-bottom: 1px solid #F2F4F4;
+  padding: 0;
+  color: #455A64;
 }

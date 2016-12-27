@@ -48,7 +48,9 @@ function displayBookmark(bookmark) {
   $(".bookmark-field").prepend(`
     <article id="${bookmark.id}" class="bookmark-card">
       <h3 class="bookmark-title">${bookmark.title}</h3>
-      <h4 class="bookmark-content">${bookmark.content}</h4>
+      <h4 class="aTagWrapper">
+        <a class="bookmark-content" href="http://${bookmark.content}">${bookmark.content}</a>
+      </h4>
       <div class="buttons-wrapper">
         <button class="read-button">Read</button>
         <button class="delete-button">Delete</button>

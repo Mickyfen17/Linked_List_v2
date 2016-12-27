@@ -57,7 +57,7 @@ button {
 
 .bookmark-card {
   width: 90%;
-  max-width: 360px;
+  max-width: 450px;
   margin: 20px auto 20px auto;
   background: #FFF;
   border: 1px solid #607D8B;
@@ -73,13 +73,12 @@ button {
 }
 
 .aTagWrapper {
-  margin: 10px 22px 0  0;
+  width: 85%;
+  margin: 10px auto 10px  auto;
   overflow: scroll;
 }
 
 .bookmark-content {
-  margin-left: 22px;
-  border-bottom: 1px solid #F2F4F4;
   font-weight: 400;
   color: #607D8B;
   text-decoration: none;

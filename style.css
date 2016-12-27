@@ -39,6 +39,10 @@ button {
 #enter-button:hover {
   background: #FFD773;
 }
+#enter-button:disabled {
+  background: #FFD773;
+  cursor: default;
+}
 
 /*Boomark field content*/
 

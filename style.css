@@ -69,10 +69,12 @@ button {
   color: #FFF;
   cursor: pointer;
 }
-#enter-button:hover {
+#enter-button:hover,
+#clear-all-button:hover {
   background: #FFD773;
 }
-#enter-button:disabled {
+#enter-button:disabled,
+#clear-all-button:disabled {
   background: #FFD773;
   cursor: default;
 }

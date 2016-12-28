@@ -16,9 +16,23 @@ $("#bookmark-title-input, #bookmark-content-input").on("keyup", function() {
 $(".bookmark-field").on("click", ".read-button", function() {
   $(this).toggleClass("read");
   $(this).closest(".bookmark-card").toggleClass("read-bookmark");
+  alterReadClassInLS(this);
   calcBookmarks(".read-bookmark", ".read-count");
   calcUnreadBookmarks();
 });
+
+function alterReadClassInLS(bookmarkCard) {
+  var id = $(bookmarkCard).closest(".bookmark-card").attr("id");
+  var parsedBookmark = JSON.parse(localStorage.getItem(id));
+  if($(bookmarkCard).hasClass("read")) {
+    parsedBookmark.readBookmark = "read-bookmark";
+    parsedBookmark.readButton = "read";
+  } else {
+    parsedBookmark.readBookmark = "";
+    parsedBookmark.readButton = "";
+  }
+  localStorage.setItem(id, JSON.stringify(parsedBookmark));
+}
 
 $(".bookmark-field").on("click", ".delete-button", function() {
   var id = $(this).closest("article").attr("id");
@@ -67,6 +81,8 @@ function Bookmark(id, title, content) {
   this.id = id;
   this.title = title;
   this.content = content;
+  this.readButton = "";
+  this.readBookmark = "";
 }
 
 function stringToLocal(id, bookmarkObj) {
@@ -85,13 +101,13 @@ function retriveBookmarks() {
 
 function displayBookmark(bookmark) {
   $(".bookmark-field").prepend(`
-    <article id="${bookmark.id}" class="bookmark-card">
+    <article id="${bookmark.id}" class="bookmark-card ${bookmark.readBookmark}">
       <h3 class="bookmark-title">${bookmark.title}</h3>
       <h4 class="aTagWrapper">
         <a class="bookmark-content" href="http://${bookmark.content}">${bookmark.content}</a>
       </h4>
       <div class="buttons-wrapper">
-        <button class="read-button">Read</button>
+        <button class="read-button ${bookmark.readButton}">Read</button>
         <button class="delete-button">Delete</button>
       </div>
     </article>

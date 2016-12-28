@@ -1,5 +1,9 @@
-retriveBookmarks();
-calcBookmarks(".bookmark-card", ".total-bookmarks");
+$(document).ready(function() {
+  retriveBookmarks();
+  calcBookmarks(".bookmark-card", ".total-bookmarks");
+  calcBookmarks(".read-bookmark", ".read-count");
+  calcUnreadBookmarks();
+});
 
 $("#enter-button").on("click", function() {
   getInputValues();
@@ -20,19 +24,6 @@ $(".bookmark-field").on("click", ".read-button", function() {
   calcBookmarks(".read-bookmark", ".read-count");
   calcUnreadBookmarks();
 });
-
-function alterReadClassInLS(bookmarkCard) {
-  var id = $(bookmarkCard).closest(".bookmark-card").attr("id");
-  var parsedBookmark = JSON.parse(localStorage.getItem(id));
-  if($(bookmarkCard).hasClass("read")) {
-    parsedBookmark.readBookmark = "read-bookmark";
-    parsedBookmark.readButton = "read";
-  } else {
-    parsedBookmark.readBookmark = "";
-    parsedBookmark.readButton = "";
-  }
-  localStorage.setItem(id, JSON.stringify(parsedBookmark));
-}
 
 $(".bookmark-field").on("click", ".delete-button", function() {
   var id = $(this).closest("article").attr("id");
@@ -75,6 +66,19 @@ function calcUnreadBookmarks() {
   var readBookmarks = $(".read-bookmark").length;
   var bookmarksOnPage = $(".bookmark-card").length;
   $(".unread-count span").text(bookmarksOnPage - readBookmarks);
+}
+
+function alterReadClassInLS(bookmarkCard) {
+  var id = $(bookmarkCard).closest(".bookmark-card").attr("id");
+  var parsedBookmark = JSON.parse(localStorage.getItem(id));
+  if($(bookmarkCard).hasClass("read")) {
+    parsedBookmark.readBookmark = "read-bookmark";
+    parsedBookmark.readButton = "read";
+  } else {
+    parsedBookmark.readBookmark = "";
+    parsedBookmark.readButton = "";
+  }
+  localStorage.setItem(id, JSON.stringify(parsedBookmark));
 }
 
 function Bookmark(id, title, content) {

@@ -16,6 +16,7 @@ html {
   margin: 0 0 15px 0;
   padding-top: 15px;
   text-align: center;
+  font-size: 2.5em;
   color: #FFF;
 }
 
@@ -24,17 +25,26 @@ button {
   display: block;
   width: 90%;
   max-width: 360px;
-  height: 20px;
+  height: 30px;
   margin: 0 auto 10px auto;
   padding: 0;
   border: 0;
 }
 
+#bookmark-title-input,
+#bookmark-content-input {
+  margin-bottom: 25px;
+  padding-left: 5px;
+  font-size: 1.4em;
+}
+
 #enter-button {
   width: 90%;
-  max-width: 360px;
-  height: 22px;
+  max-width: 365px;
+  height: 30px;
   border: 0;
+  font-size: 1.1em;
+  font-weight: 800;
   background: #FFC107;
   color: #FFF;
   cursor: pointer;

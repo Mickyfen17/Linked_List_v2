@@ -1,12 +1,12 @@
 retriveBookmarks();
-calcTotalBookmarks();
+calcBookmarks(".bookmark-card", ".total-bookmarks");
 
 $("#enter-button").on("click", function() {
   getInputValues();
   clearInputs();
   testEmptyInputs();
+  calcBookmarks(".bookmark-card", ".total-bookmarks");
   calcUnreadBookmarks();
-  calcTotalBookmarks();
 });
 
 $("#bookmark-title-input, #bookmark-content-input").on("keyup", function() {
@@ -16,7 +16,7 @@ $("#bookmark-title-input, #bookmark-content-input").on("keyup", function() {
 $(".bookmark-field").on("click", ".read-button", function() {
   $(this).toggleClass("read");
   $(this).closest(".bookmark-card").toggleClass("read-bookmark");
-  calcReadBookmarks();
+  calcBookmarks(".read-bookmark", ".read-count");
   calcUnreadBookmarks();
 });
 
@@ -24,8 +24,8 @@ $(".bookmark-field").on("click", ".delete-button", function() {
   var id = $(this).closest("article").attr("id");
   localStorage.removeItem(id);
   $(this).closest("article").remove();
-  calcTotalBookmarks();
-  calcReadBookmarks();
+  calcBookmarks(".bookmark-card", ".total-bookmarks");
+  calcBookmarks(".read-bookmark", ".read-count");
   calcUnreadBookmarks();
 });
 
@@ -52,19 +52,17 @@ function testEmptyInputs() {
   }
 }
 
-function calcTotalBookmarks() {
-  var bookmarksOnPage = $(".bookmark-card").length;
-  $(".total-bookmarks span").text(bookmarksOnPage);
+function calcBookmarks(bookmarkClassType, counterToChange) {
+  var bookmarksOnPage = $(bookmarkClassType).length;
+  $(counterToChange + " span").text(bookmarksOnPage);
 }
-function calcReadBookmarks() {
-  var readBookmarks = $(".read-bookmark").length;
-  $(".read-count span").text(readBookmarks);
-}
+
 function calcUnreadBookmarks() {
   var readBookmarks = $(".read-bookmark").length;
   var bookmarksOnPage = $(".bookmark-card").length;
   $(".unread-count span").text(bookmarksOnPage - readBookmarks);
 }
+
 function Bookmark(id, title, content) {
   this.id = id;
   this.title = title;

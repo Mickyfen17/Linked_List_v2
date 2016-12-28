@@ -16,8 +16,13 @@ html {
   margin: 0 0 15px 0;
   padding-top: 15px;
   text-align: center;
-  font-size: 2.5em;
+  font-size: 1.5em;
   color: #FFF;
+}
+
+.linked-list-logo {
+  width: 38px;
+  margin: 0 5px;
 }
 
 input,
@@ -39,7 +44,7 @@ button {
 }
 
 #enter-button {
-  width: 90%;
+  width: 92%;
   max-width: 365px;
   height: 30px;
   border: 0;
@@ -144,6 +149,12 @@ button {
   }
   .input-wrapper {
     width: 100%;
+  }
+  .main-header {
+    font-size: 2.5em;
+  }
+  .linked-list-logo {
+    width: 60px;
   }
   .bookmark-field {
     width: 50%;

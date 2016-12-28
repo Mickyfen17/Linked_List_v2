@@ -12,9 +12,23 @@ html {
   background: #455A64;
 }
 
+.read-count {
+  padding-top: 10px;
+}
+
+.read-count,
+.unread-count,
+.total-bookmarks {
+  margin: 0;
+  text-align: center;
+  font-size: 0.7em;
+  font-weight: 400;
+  color: #FFF;
+}
+
 .main-header {
   margin: 0 0 15px 0;
-  padding-top: 15px;
+  padding-top: 5px;
   text-align: center;
   font-size: 1.5em;
   color: #FFF;

@@ -3,8 +3,10 @@ $(document).ready(function() {
   calcBookmarks(".bookmark-card", ".total-bookmarks");
   calcBookmarks(".read-bookmark", ".read-count");
   calcUnreadBookmarks();
+  clearButtonEnabler();
 });
 
+// Event listensers
 $("#enter-button").on("click", function() {
   getInputValues();
   clearInputs();
@@ -18,15 +20,8 @@ $("#clear-all-button").on("click", function() {
   $(".read-bookmark").remove();
   calcBookmarks(".bookmark-card", ".total-bookmarks");
   calcBookmarks(".read-bookmark", ".read-count");
+  clearButtonEnabler();
 });
-
-function removeAllReadFromLS() {
-  var readBookmarks = $(".read-bookmark");
-  readBookmarks.each(function(i, bookmark) {
-    var id = $(bookmark).attr("id");
-    localStorage.removeItem(id);
-  });
-}
 
 $("#bookmark-title-input, #bookmark-content-input").on("keyup", function() {
   testEmptyInputs();
@@ -38,6 +33,7 @@ $(".bookmark-field").on("click", ".read-button", function() {
   alterReadClassInLS(this);
   calcBookmarks(".read-bookmark", ".read-count");
   calcUnreadBookmarks();
+  clearButtonEnabler();
 });
 
 $(".bookmark-field").on("click", ".delete-button", function() {
@@ -49,6 +45,7 @@ $(".bookmark-field").on("click", ".delete-button", function() {
   calcUnreadBookmarks();
 });
 
+// Helper functions
 function getInputValues() {
   var titleValue = $("#bookmark-title-input").val();
   var contentValue = $("#bookmark-content-input").val();
@@ -70,6 +67,10 @@ function testEmptyInputs() {
   } else {
     $("#enter-button").prop("disabled", true);
   }
+}
+
+function clearButtonEnabler() {
+  $(".read-bookmark").length > 0 ? $("#clear-all-button").prop("disabled", false) : $("#clear-all-button").prop("disabled", true);
 }
 
 function calcBookmarks(bookmarkClassType, counterToChange) {
@@ -96,6 +97,15 @@ function alterReadClassInLS(bookmarkCard) {
   localStorage.setItem(id, JSON.stringify(parsedBookmark));
 }
 
+function removeAllReadFromLS() {
+  var readBookmarks = $(".read-bookmark");
+  readBookmarks.each(function(i, bookmark) {
+    var id = $(bookmark).attr("id");
+    localStorage.removeItem(id);
+  });
+}
+
+// Constructor function, stringify, parse & display to DOM
 function Bookmark(id, title, content) {
   this.id = id;
   this.title = title;

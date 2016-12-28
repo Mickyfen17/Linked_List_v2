@@ -1,9 +1,12 @@
 retriveBookmarks();
+calcTotalBookmarks();
 
 $("#enter-button").on("click", function() {
   getInputValues();
   clearInputs();
   testEmptyInputs();
+  calcUnreadBookmarks();
+  calcTotalBookmarks();
 });
 
 $("#bookmark-title-input, #bookmark-content-input").on("keyup", function() {
@@ -13,12 +16,17 @@ $("#bookmark-title-input, #bookmark-content-input").on("keyup", function() {
 $(".bookmark-field").on("click", ".read-button", function() {
   $(this).toggleClass("read");
   $(this).closest(".bookmark-card").toggleClass("read-bookmark");
+  calcReadBookmarks();
+  calcUnreadBookmarks();
 });
 
 $(".bookmark-field").on("click", ".delete-button", function() {
   var id = $(this).closest("article").attr("id");
   localStorage.removeItem(id);
   $(this).closest("article").remove();
+  calcTotalBookmarks();
+  calcReadBookmarks();
+  calcUnreadBookmarks();
 });
 
 function getInputValues() {
@@ -44,6 +52,19 @@ function testEmptyInputs() {
   }
 }
 
+function calcTotalBookmarks() {
+  var bookmarksOnPage = $(".bookmark-card").length;
+  $(".total-bookmarks span").text(bookmarksOnPage);
+}
+function calcReadBookmarks() {
+  var readBookmarks = $(".read-bookmark").length;
+  $(".read-count span").text(readBookmarks);
+}
+function calcUnreadBookmarks() {
+  var readBookmarks = $(".read-bookmark").length;
+  var bookmarksOnPage = $(".bookmark-card").length;
+  $(".unread-count span").text(bookmarksOnPage - readBookmarks);
+}
 function Bookmark(id, title, content) {
   this.id = id;
   this.title = title;

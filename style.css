@@ -57,7 +57,8 @@ button {
   font-size: 1.4em;
 }
 
-#enter-button {
+#enter-button,
+#clear-all-button {
   width: 92%;
   max-width: 365px;
   height: 30px;

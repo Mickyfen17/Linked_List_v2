@@ -13,6 +13,21 @@ $("#enter-button").on("click", function() {
   calcUnreadBookmarks();
 });
 
+$("#clear-all-button").on("click", function() {
+  removeAllReadFromLS();
+  $(".read-bookmark").remove();
+  calcBookmarks(".bookmark-card", ".total-bookmarks");
+  calcBookmarks(".read-bookmark", ".read-count");
+});
+
+function removeAllReadFromLS() {
+  var readBookmarks = $(".read-bookmark");
+  readBookmarks.each(function(i, bookmark) {
+    var id = $(bookmark).attr("id");
+    localStorage.removeItem(id);
+  });
+}
+
 $("#bookmark-title-input, #bookmark-content-input").on("keyup", function() {
   testEmptyInputs();
 });
